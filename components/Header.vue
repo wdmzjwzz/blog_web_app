@@ -23,9 +23,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-header {
-  
-}
+
 </style>
 <style lang="less" scoped>
 

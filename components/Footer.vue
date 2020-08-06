@@ -19,9 +19,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-footer {
- 
-}
+
 </style>
 <style lang="less" scoped>
 @media (max-width: 750px) {

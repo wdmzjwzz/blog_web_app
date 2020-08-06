@@ -1,8 +1,8 @@
 {
-  "name": "Juzix-Web",
+  "name": "webapp",
   "version": "1.0.0",
   "description": "My gnarly Nuxt.js project",
-  "author": "QianaWei",
+  "author": "wangzz",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -19,17 +19,9 @@
     "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/proxy": "^1.3.3",
     "@nuxtjs/style-resources": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-plugin-prettier": "^3.1.2",
     "less": "^3.11.1",
-    "less-loader": "^6.1.0",
-    "prettier": "^1.19.1"
+    "less-loader": "^6.1.0"
   }
 }
