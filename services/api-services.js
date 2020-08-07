@@ -34,9 +34,8 @@ const encodeParams = params => {
  */
 class ApiService {
   constructor() {
-    this.news = {
-      getList: this.get.bind(this, API.news.getNewsList),
-      getDetail: this.get.bind(this, API.news.getNewsDetail)
+    this.blog = {
+      getBlogsList: this.get.bind(this, API.news.getBlogsList)
     }
     this.interceptorsOfReq()
     this.interceptorsOfRes()

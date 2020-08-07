@@ -5,15 +5,25 @@
 <script>
 export default {
   head() {
-    return {}
+    return {
+      blogData: [],
+    }
   },
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    getblogList() {
+      this.$http.blog.getBlogsList().then((res) => {
+        this.blogData = res.data
+      })
+    },
+  },
   computed: {},
   components: {},
-  mounted() {},
+  mounted() {
+    this.getblogList()
+  },
 }
 </script>
 

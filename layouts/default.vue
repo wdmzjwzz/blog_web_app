@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       unFixed: false,
+      bgImg: '',
     }
   },
   components: { Header, Footer },
@@ -28,6 +29,14 @@ export default {
         this.unFixed = false
       }
     },
+  },
+  beforeCreate(){
+    if (process.client) {
+      let img = new Image()
+      img.src = '/img/bg1_a.jpg'
+      let _this = this
+      img.onload = function () {}
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
@@ -51,7 +60,8 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    background: url('/img/bg1.jpg');
+    background: url('/img/bg1_a.jpg');
+    // background: url('/img/bg1_a.jpg');
     background-position-y: -300px;
     background-repeat: no-repeat;
     z-index: -1;

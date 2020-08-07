@@ -1,8 +1,7 @@
-const API = '/api'
+const API = 'https://wangzz.site/api'
 
 const news = {
-  getNewsList: `${API}/front/content/listByPath`,
-  getNewsDetail: `${API}/front/content/get`
+  getBlogsList: `${API}/getBlogList`
 }
 
 export default {
