@@ -1,5 +1,5 @@
 <template>
-  <div :class="[lang]" class="defau">
+  <div class="defau">
     <Header />
     <nuxt />
     <Footer />
@@ -12,18 +12,11 @@ import Footer from '../components/Footer'
 export default {
   data() {
     return {
-      unFixed: false
+      unFixed: false,
     }
   },
-  components: { Header, Footer, ContactIcon },
-  computed: {
-    lang() {
-      return this.$i18n.locale
-    },
-    mobile() {
-      return this.isMobile
-    }
-  },
+  components: { Header, Footer },
+  computed: {},
   methods: {
     handleScroll(e) {
       let scroll = window.document.documentElement.scrollTop
@@ -34,19 +27,35 @@ export default {
       } else {
         this.unFixed = false
       }
-    }
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
   },
-  destroyed(){
+  destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
-  }
+  },
 }
 </script>
 <style lang="less" scoped>
 .defau {
+  height: 100%;
   position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('/img/bg1.jpg');
+    background-position-y: -300px;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
 }
 .un-fixed {
   position: absolute !important;

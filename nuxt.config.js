@@ -25,7 +25,7 @@ export default {
    ** Global CSS
    */
   css: [
-    // 'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
     'swiper/css/swiper.css',
     {
       src: 'assets/less/font.less',
@@ -34,17 +34,14 @@ export default {
     {
       src: 'assets/less/common.less',
       lang: 'less'
-    },
-    {
-      src: 'assets/less/en.less',
-      lang: 'less'
     }
   ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // '@/plugins/element-ui',
+    '@/plugins/element-ui',
+    { src:'@/plugins/live2d.js', ssr: false },
     { src: '~/plugins/main', ssr: true },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/rem.js', ssr: false },
