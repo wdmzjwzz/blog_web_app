@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import ApiService from '../services/api-services'
-
+import moment from "moment"
+Vue.prototype.moment = moment;
 const apiService = {
   install(Vue) {
     Vue.prototype.$http = ApiService
