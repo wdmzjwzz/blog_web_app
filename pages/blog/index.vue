@@ -120,23 +120,20 @@ export default {
 </style>
 <style lang="less" scoped>
 .blog {
-  position: absolute;
-  height: calc(100% - 50px) ;
   width: 100%;
   padding: 0 50px;
   display: flex;
-
- 
+  height: calc(100vh - 100px);
   .left-menu {
     width: 20%;
-    height: 90%;
+    height: 100%;
     margin-right: 30px;
     padding: 20px;
   }
   .content {
     flex: 1;
     width: 60%;
-    height: 90%;
+    height: 100%;
     padding: 20px;
     margin-right: 30px;
     overflow-y: auto;
@@ -160,7 +157,7 @@ export default {
   }
   .right {
     width: 20%;
-    height: 90%;
+    height: 100%;
     padding: 50px;
   }
 }

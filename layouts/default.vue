@@ -49,21 +49,8 @@ export default {
 <style lang="less" scoped>
 .defau {
   height: 100%;
-  
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url("/img/bg1_a.jpg");
-    // background: url('/img/bg1_a.jpg');
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
+  background: url("/img/bg1_a.jpg");
+  padding-bottom: 50px;
 }
 .un-fixed {
   position: absolute !important;

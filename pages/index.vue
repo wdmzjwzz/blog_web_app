@@ -26,11 +26,10 @@ export default {
 
 <style lang="less" scoped>
 .home {
-  position: absolute;
   width: 100%;
   padding: 0 50px;
   display: flex;
-
+  height: calc(100vh - 100px) ;
   .bg-white {
     background: rgba(225, 225, 225, 0.3);
   }

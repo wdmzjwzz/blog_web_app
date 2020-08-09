@@ -75,7 +75,7 @@ export default {
    */
   proxy: {
     '/api': {
-      target: 'http://localhost:8081',
+      target: 'https://wangzz.site',
       changeOrigin: true,
       pathRewrite: {
         '^/api': '/api'

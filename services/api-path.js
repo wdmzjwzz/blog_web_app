@@ -1,6 +1,6 @@
 let API
 if (process.server) {
-   API = 'http://localhost:8081/api'
+   API = 'https://wangzz.site/api'
 }else{
    API = '/api'
 }

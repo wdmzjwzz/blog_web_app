@@ -145,7 +145,7 @@ export default {
 <style lang="less" scoped>
 .add-content {
   width: 1200px;
-  min-height: 1200px;
+  min-height: 800px;
 
   margin: 0 auto;
   margin-top: 50px;
@@ -158,7 +158,7 @@ export default {
     font-weight: bold;
   }
   .editer {
-    height: 880px;
+    height: 600px;
   }
   .create-select {
     float: right;
