@@ -27,6 +27,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'swiper/css/swiper.css',
+    './static/iconfont/iconfont.css',
     {
       src: 'assets/less/font.less',
       lang: 'less'
@@ -71,15 +72,15 @@ export default {
   /**
    * 代理
    */
-  // proxy: {
-  //   '/api': {
-  //     target: 'https://wangzz.site',
-  //     changeOrigin: true,
-  //     pathRewrite: {
-  //       '^/api': '/api'
-  //     }
-  //   }
-  // },
+  proxy: {
+    '/api': {
+      target: 'https://wangzz.site',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '/api'
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

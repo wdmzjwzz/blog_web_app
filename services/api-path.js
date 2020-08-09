@@ -1,11 +1,16 @@
-const API = 'https://wangzz.site/api'
-
-const news = {
-  getBlogsList: `${API}/getBlogList`
+let API
+if (process.server) {
+   API = 'https://wangzz.site/api'
+}else{
+   API = '/api'
+}
+const blog = {
+  getBlogsList: `${API}/getBlogList`,
+  menuList:`${API}/dir/list`,
 }
 
 export default {
-  news
+  blog
 }
 
 

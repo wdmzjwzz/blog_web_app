@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "element-ui": "^2.4.11",
+    "moment": "^2.27.0",
     "nuxt": "^2.0.0",
     "swiper": "^5.4.1",
     "vue-awesome-swiper": "^4.1.1"

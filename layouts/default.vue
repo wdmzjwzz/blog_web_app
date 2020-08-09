@@ -1,8 +1,8 @@
 <template>
-  <div class="defau">
+  <div class="defau" >
     <Header />
     <nuxt />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -49,7 +49,6 @@ export default {
 <style lang="less" scoped>
 .defau {
   height: 100%;
-  position: relative;
 
   &::after {
     content: '';
@@ -62,7 +61,6 @@ export default {
     left: 0;
     background: url('/img/bg1_a.jpg');
     // background: url('/img/bg1_a.jpg');
-    background-position-y: -300px;
     background-repeat: no-repeat;
     z-index: -1;
   }
