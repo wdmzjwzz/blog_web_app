@@ -1,12 +1,15 @@
 let API
 if (process.server) {
-   API = 'https://wangzz.site/api'
+   API = 'http://localhost:8081/api'
 }else{
    API = '/api'
 }
 const blog = {
   getBlogsList: `${API}/getBlogList`,
   menuList:`${API}/dir/list`,
+  create:`${API}/createBlog`,
+  createLabel:`${API}/dir/createBlogDir`,
+  deleteLabel:`${API}/dir/deleteBlogDirById`,
 }
 
 export default {

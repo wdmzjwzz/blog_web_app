@@ -1,4 +1,4 @@
-
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 export default {
   mode: 'universal',
   /*
@@ -75,7 +75,7 @@ export default {
    */
   proxy: {
     '/api': {
-      target: 'https://wangzz.site',
+      target: 'http://localhost:8081',
       changeOrigin: true,
       pathRewrite: {
         '^/api': '/api'
@@ -95,7 +95,15 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
+    extend(config, ctx) { },
+    filenames: {
+      chunk: ({ isDev }) => (isDev ? '[name].js' : '[id].[contenthash].js')
+    },
+    plugins: [
+      new MomentLocalesPlugin({
+        localesToKeep: ['zh-cn'],
+    }),
+    ]
   },
   server: {
     port: 3000, // default: 3000

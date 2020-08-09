@@ -1,5 +1,5 @@
 <template>
-  <div class="defau" >
+  <div class="defau">
     <Header />
     <nuxt />
     <!-- <Footer /> -->
@@ -7,51 +7,51 @@
 </template>
 
 <script>
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 export default {
   data() {
     return {
       unFixed: false,
-      bgImg: '',
-    }
+      bgImg: "",
+    };
   },
   components: { Header, Footer },
   computed: {},
   methods: {
     handleScroll(e) {
-      let scroll = window.document.documentElement.scrollTop
-      let clientHeight = window.document.documentElement.clientHeight
-      let docHeight = document.body.scrollHeight
+      let scroll = window.document.documentElement.scrollTop;
+      let clientHeight = window.document.documentElement.clientHeight;
+      let docHeight = document.body.scrollHeight;
       if (docHeight - scroll - clientHeight > 400) {
-        this.unFixed = true
+        this.unFixed = true;
       } else {
-        this.unFixed = false
+        this.unFixed = false;
       }
     },
   },
-  beforeCreate(){
+  beforeCreate() {
     if (process.client) {
-      let img = new Image()
-      img.src = '/img/bg1_a.jpg'
-      let _this = this
-      img.onload = function () {}
+      let img = new Image();
+      img.src = "/img/bg1_a.jpg";
+      let _this = this;
+      img.onload = function () {};
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener("scroll", this.handleScroll);
   },
-}
+};
 </script>
 <style lang="less" scoped>
 .defau {
   height: 100%;
-
+  
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: 100%;
     height: 100%;
@@ -59,7 +59,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    background: url('/img/bg1_a.jpg');
+    background: url("/img/bg1_a.jpg");
     // background: url('/img/bg1_a.jpg');
     background-repeat: no-repeat;
     z-index: -1;

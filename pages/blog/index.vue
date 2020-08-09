@@ -2,7 +2,7 @@
   <div class="blog">
     <div class="bg-white left-menu">
       <el-menu
-        default-active="2"
+        default-active="all"
         class="el-menu-vertical"
         background-color="transparent"
         text-color="#fff"
@@ -29,7 +29,7 @@
         <h2>
           <nuxt-link :to="'/blog/'+item.id">{{item.title}}</nuxt-link>
         </h2>
-        <div>{{item.content}}</div>
+        <div>{{item.overview}}</div>
         <div class="item-footer">{{moment(item.create_time).format('YYYY-MM-DD HH:mm')}}</div>
       </div>
     </div>

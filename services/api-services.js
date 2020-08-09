@@ -36,7 +36,10 @@ class ApiService {
   constructor() {
     this.blog = {
       getBlogsList: this.get.bind(this, API.blog.getBlogsList),
-      menuList: this.get.bind(this, API.blog.menuList)
+      menuList: this.get.bind(this, API.blog.menuList),
+      create: this.post.bind(this, API.blog.create),
+      createLabel: this.post.bind(this, API.blog.createLabel),
+      deleteLabel: this.delete.bind(this, API.blog.deleteLabel)
     }
     this.interceptorsOfReq()
     this.interceptorsOfRes()
@@ -68,7 +71,12 @@ class ApiService {
     }
     return Http.post(url, params).then(res => res.data)
   }
-
+  delete(url, id) {
+    if (id) {
+      url = url + "/" + id
+    }
+    return Http.delete(url).then(res => res.data)
+  }
   /**
    * 请求拦截器
    */
