@@ -42,6 +42,7 @@ export default {
    */
   plugins: [
     '@/plugins/element-ui',
+    { src: '@/plugins/hightlight.js', ssr: false },
     { src: '@/plugins/mavon-editer.js', ssr: false },
     { src: '@/plugins/live2d.js', ssr: false },
     { src: '~/plugins/main', ssr: true },

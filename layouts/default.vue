@@ -49,7 +49,7 @@ export default {
 <style lang="less" scoped>
 .defau {
   height: 100%;
-  background: url("/img/bg1_a.jpg");
+ 
   padding-bottom: 50px;
 }
 .un-fixed {

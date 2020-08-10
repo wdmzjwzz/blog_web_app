@@ -39,7 +39,9 @@ class ApiService {
       menuList: this.get.bind(this, API.blog.menuList),
       create: this.post.bind(this, API.blog.create),
       createLabel: this.post.bind(this, API.blog.createLabel),
-      deleteLabel: this.delete.bind(this, API.blog.deleteLabel)
+      deleteLabel: this.delete.bind(this, API.blog.deleteLabel),
+      getBlogById: this.getBlogById.bind(this, API.blog.getBlogById),
+      deleteblog: this.delete.bind(this, API.blog.deleteblog)
     }
     this.interceptorsOfReq()
     this.interceptorsOfRes()
@@ -57,7 +59,12 @@ class ApiService {
     }
     return Http.get(url).then(res => res.data)
   }
-
+  getBlogById(url, id) {
+    if (id) {
+      url = url + "/" + id
+    }
+    return Http.get(url).then(res => res.data)
+  }
   /**
    * post请求
    * @param url       请求地址

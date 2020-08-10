@@ -10,6 +10,8 @@ const blog = {
   create:`${API}/createBlog`,
   createLabel:`${API}/dir/createBlogDir`,
   deleteLabel:`${API}/dir/deleteBlogDirById`,
+  getBlogById: `${API}/getBlogById`,
+  deleteblog:`${API}/deleteBlogById`,
 }
 
 export default {
