@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="">欢迎啊</div>
+    <iframe src="/three/wanshiwu.html" frameborder="0" height="100%" width="100%" class="three-3d"></iframe>
   </div>
 </template>
 
@@ -38,6 +38,9 @@ export default {
     width: 80%;
     height: 90%;
   }
+}
+.three-3d{
+  overflow: hidden;
 }
 @media (max-width: 750px) {
   .home {
