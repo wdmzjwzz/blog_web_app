@@ -103,7 +103,7 @@ export default {
     plugins: [
       new MomentLocalesPlugin({
         localesToKeep: ['zh-cn'],
-    }),
+      }),
     ]
   },
   server: {

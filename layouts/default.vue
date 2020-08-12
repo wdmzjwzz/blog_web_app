@@ -1,5 +1,5 @@
 <template>
-  <div class="defau">
+  <div class="defau" :class="{'loaded':loaded}">
     <Header />
     <nuxt />
     <!-- <Footer /> -->
@@ -7,50 +7,62 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 export default {
   data() {
     return {
       unFixed: false,
-      bgImg: "",
-    };
+      bgImg: '',
+      loaded: false,
+    }
   },
   components: { Header, Footer },
   computed: {},
   methods: {
     handleScroll(e) {
-      let scroll = window.document.documentElement.scrollTop;
-      let clientHeight = window.document.documentElement.clientHeight;
-      let docHeight = document.body.scrollHeight;
+      let scroll = window.document.documentElement.scrollTop
+      let clientHeight = window.document.documentElement.clientHeight
+      let docHeight = document.body.scrollHeight
       if (docHeight - scroll - clientHeight > 400) {
-        this.unFixed = true;
+        this.unFixed = true
       } else {
-        this.unFixed = false;
+        this.unFixed = false
       }
     },
   },
-  beforeCreate() {
+  created() {
     if (process.client) {
-      let img = new Image();
-      img.src = "/img/bg1_a.jpg";
-      let _this = this;
-      img.onload = function () {};
+      let img = new Image()
+      img.src = '/img/bg1_a.jpg'
+      let _this = this
+      img.onload = () => {
+        _this.loaded = true
+      }
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   },
-};
+}
 </script>
 <style lang="less" scoped>
 .defau {
   height: 100%;
- 
   padding-bottom: 50px;
+  background: url('/img/bg1_min.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+}
+.loaded {
+  background: url('/img/bg1_a.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(0px);
 }
 .un-fixed {
   position: absolute !important;
