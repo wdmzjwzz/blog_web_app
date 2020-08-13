@@ -52,7 +52,6 @@ export default {
 <style lang="less" scoped>
 .defau {
   height: 100%;
-  padding-bottom: 50px;
   background: url('/img/bg1_min.jpg');
   background-repeat: no-repeat;
   background-size: cover;
