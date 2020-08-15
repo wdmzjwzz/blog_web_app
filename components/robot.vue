@@ -1,11 +1,8 @@
 <template>
   <div class="robot">
     <div id="robot"></div>
-    <el-menu default-active="0" class="el-menu-vertical" :collapse="false">
-      <el-menu-item index="0">
-        <i class="el-icon-menu"></i>
-      </el-menu-item>
-    </el-menu>
+
+    <div class="el-menu-vertical" id="gui"></div>
   </div>
 </template>
 
@@ -24,10 +21,18 @@ export default {
       },
     ],
   },
+
   data() {
-    return {}
+    return {
+      gui: null,
+      actions: null,
+      activeAction: null,
+    }
   },
   methods: {
+    changeGui() {
+      this.actions['Running'].stop()
+    },
     draw() {
       var container,
         // stats,
@@ -40,7 +45,7 @@ export default {
       var camera, scene, renderer, model, face
 
       var api = { state: 'Walking' }
-
+      let _this = this
       init()
       animate()
 
@@ -133,7 +138,8 @@ export default {
         mixer = new THREE.AnimationMixer(model)
 
         actions = {}
-
+        _this.gui = gui
+        _this.actions = actions
         for (var i = 0; i < animations.length; i++) {
           var clip = animations[i]
           var action = mixer.clipAction(clip)
@@ -150,7 +156,7 @@ export default {
 
         // states
 
-        var statesFolder = gui.addFolder('States')
+        var statesFolder = gui.addFolder('状态')
 
         var clipCtrl = statesFolder.add(api, 'state').options(states)
 
@@ -158,11 +164,11 @@ export default {
           fadeToAction(api.state, 0.5)
         })
 
-        statesFolder.open()
+        // statesFolder.open()
 
         // emotes
 
-        var emoteFolder = gui.addFolder('Emotes')
+        var emoteFolder = gui.addFolder('动作')
 
         function createEmoteCallback(name) {
           api[name] = function () {
@@ -183,22 +189,25 @@ export default {
           createEmoteCallback(emotes[i])
         }
 
-        emoteFolder.open()
+        // emoteFolder.open()
 
         // expressions
         face = model.getObjectByName('Head_2')
 
         var expressions = Object.keys(face.morphTargetDictionary)
-        var expressionFolder = gui.addFolder('Expressions')
+        var expressionFolder = gui.addFolder('表情')
         for (var i = 0; i < expressions.length; i++) {
           expressionFolder
             .add(face.morphTargetInfluences, i, 0, 1, 0.01)
             .name(expressions[i])
         }
 
-        activeAction = actions['Running']
+        activeAction = actions['Dance']
         activeAction.play()
-        expressionFolder.open()
+        // expressionFolder.open()
+        gui.close()
+        // gui.domElement.lastChild.innerHTML = "收起"
+        document.getElementById('gui').appendChild(gui.domElement)
       }
 
       function fadeToAction(name, duration) {
@@ -245,14 +254,31 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .robot {
   position: relative;
   .el-menu-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    padding: 20px 10px;
     position: absolute;
     top: 0;
     left: 0;
     background: transparent;
+    .main {
+      width: 100px !important;
+      ul > li {
+        &:nth-of-type(2) {
+          .dg .property-name {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .close-button {
+      width: 100px !important;
+    }
   }
 }
 </style>
@@ -267,8 +293,5 @@ export default {
     top: -5px;
     left: -5px;
   }
-}
-.dg {
-  display: none;
 }
 </style>
