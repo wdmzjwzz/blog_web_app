@@ -1,15 +1,10 @@
 <template>
   <div class="home">
-    <!-- <iframe src="/three/wanshiwu.html" frameborder="0" height="100%" width="100%" class="three-3d"></iframe> -->
     <div id="container"></div>
   </div>
 </template>
 
 <script>
-// import * as THREE from '../static/three/libs/three.module.js'
-// import { OrbitControls } from '../static/three/controls/OrbitControls.js'
-// import { GLTFLoader } from '../static/three/loaders/GLTFLoader.js'
-// import { DRACOLoader } from '../static/three/loaders/DRACOLoader.js'
 export default {
   head: {
     script: [

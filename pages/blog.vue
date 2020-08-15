@@ -25,69 +25,50 @@
       </el-menu>
     </div>
     <div class="bg-white content">
-      <nuxt-child />
+      <nuxt-child :category="category" />
     </div>
-    <div class="bg-white right"></div>
+    <div class="bg-white right">
+      <robot />
+    </div>
   </div>
 </template>
 
 <script>
+import robot from '../components/robot'
 export default {
   async asyncData({ app, params }) {
     //请求
-    let blogData;
-    let menuList;
-    await app.$http.blog.getBlogsList().then(function (response) {
-      blogData = response.result;
-    });
+    let menuList
+
     await app.$http.blog.menuList().then(function (response) {
-      menuList = response.result;
-    });
-    return { blogData: blogData, menuList: menuList };
+      menuList = response.result
+    })
+    return { menuList: menuList }
   },
   head() {
-    return {
-      blogData: [],
-    };
+    return {}
   },
   data() {
     return {
       timer: null,
-      blogData: [],
       menuList: [],
-    };
+      category: 'all',
+    }
   },
   methods: {
     getblogList(index, indexPath) {
-      let category = index;
-      let params = {
-        category: category,
-      };
-      if (!category) {
-        return;
-      }
-      if (this.lock) {
-        return;
-      }
-      if (category === "all") {
-        params = null;
-      }
-      this.lock = true;
-      this.$http.blog.getBlogsList(params).then((response) => {
-        this.blogData = response.result;
-        this.lock = false;
-      });
+      this.category = index
     },
   },
   computed: {},
-  components: {},
+  components: { robot },
   created() {},
   mounted() {
-    this.$root.$on("refresh", (options) => {
-      this.menuList = options;
-    });
+    this.$root.$on('refresh', (options) => {
+      this.menuList = options
+    })
   },
-};
+}
 </script>
 <style lang="less">
 .el-menu-vertical {
@@ -155,7 +136,6 @@ export default {
   .right {
     width: 20%;
     height: 100%;
-    padding: 50px;
   }
 }
 @media (max-width: 750px) {
