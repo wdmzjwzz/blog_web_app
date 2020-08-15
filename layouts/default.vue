@@ -1,5 +1,6 @@
 <template>
-  <div class="defau" :class="{'loaded':loaded}">
+  <div class="defau">
+    <img id="bg-img" src="/img/bg1_min.jpg" alt />
     <Header />
     <nuxt />
     <!-- <Footer /> -->
@@ -9,6 +10,15 @@
 <script>
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+if (process.client) {
+  let img = new Image()
+  img.src = '/img/bg1_a.jpg'
+  let _this = this
+  img.onload = (data) => {
+    document.getElementById('bg-img').src = '/img/bg1_a.jpg'
+    document.getElementById('bg-img').style.filter = 'blur(0px)'
+  }
+}
 export default {
   data() {
     return {
@@ -31,16 +41,7 @@ export default {
       }
     },
   },
-  created() {
-    if (process.client) {
-      let img = new Image()
-      img.src = '/img/bg1_a.jpg'
-      let _this = this
-      img.onload = () => {
-        _this.loaded = true
-      }
-    }
-  },
+  created() {},
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
   },
@@ -52,17 +53,16 @@ export default {
 <style lang="less" scoped>
 .defau {
   height: 100%;
-  background: url('/img/bg1_min.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+
+}
+#bg-img {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
   filter: blur(5px);
 }
-.loaded {
-  background: url('/img/bg1_a.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(0px);
-}
+
 .un-fixed {
   position: absolute !important;
   bottom: 440px !important;
