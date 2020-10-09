@@ -183,11 +183,11 @@ export default {
   },
   mounted() {
     this.getselect();
-    if (cookie.get("auth") !== "yes") {
-      this.$router.push({
-        path: "/",
-      });
-    }
+    // if (cookie.get("auth") !== "yes") {
+    //   this.$router.push({
+    //     path: "/",
+    //   });
+    // }
   },
 };
 </script>

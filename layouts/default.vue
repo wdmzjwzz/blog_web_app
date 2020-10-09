@@ -30,16 +30,16 @@ export default {
   components: { Header, Footer },
   computed: {},
   methods: {
-    handleScroll(e) {
-      let scroll = window.document.documentElement.scrollTop
-      let clientHeight = window.document.documentElement.clientHeight
-      let docHeight = document.body.scrollHeight
-      if (docHeight - scroll - clientHeight > 400) {
-        this.unFixed = true
-      } else {
-        this.unFixed = false
-      }
-    },
+    // handleScroll(e) {
+    //   let scroll = window.document.documentElement.scrollTop;
+    //   let clientHeight = window.document.documentElement.clientHeight;
+    //   let docHeight = document.body.scrollHeight;
+    //   if (docHeight - scroll - clientHeight > 400) {
+    //     this.unFixed = true;
+    //   } else {
+    //     this.unFixed = false;
+    //   }
+    // },
   },
   created() {},
   mounted() {
